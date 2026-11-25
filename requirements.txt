@@ -1,0 +1,6 @@
+torch>=2.4
+diffusers>=0.31,<0.36
+transformers>=4.44,<5
+accelerate>=0.33
+safetensors>=0.4
+pillow>=10
