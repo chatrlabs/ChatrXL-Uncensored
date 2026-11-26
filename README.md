@@ -67,8 +67,16 @@ ComfyUI/models/
 1. `Load Checkpoint` → the ChatrXL Uncensored checkpoint
 2. `CLIP Text Encode` (positive) → `score_9, score_8_up, score_7_up, BSY_General_Positives_V1_PRO, <prompt>`
 3. `CLIP Text Encode` (negative) → `BSY_Anatomy_Negatives_V1_PRO`
-4. `KSampler` → `euler_a` 20 steps CFG 5.0, or `lcm` 8 steps CFG 1.1
+4. `KSampler` → `euler_ancestral` 20 steps CFG 5.0, or `lcm` 8 steps CFG 1.1
 5. `VAE Decode` → `Save Image`
+
+Ready-to-run workflows are included:
+
+- [`comfyui/chatrxl-quality.json`](./comfyui/chatrxl-quality.json) — 20 steps, `euler_ancestral`, CFG 5.0
+- [`comfyui/chatrxl-dmd2.json`](./comfyui/chatrxl-dmd2.json) — 8 steps, `lcm`, CFG 1.1
+- API-format copies: [`comfyui/chatrxl-quality-api.json`](./comfyui/chatrxl-quality-api.json), [`comfyui/chatrxl-dmd2-api.json`](./comfyui/chatrxl-dmd2-api.json)
+
+Tested with ComfyUI 0.43.0 using only built-in nodes. See [`comfyui/README.md`](./comfyui/README.md).
 
 ## Diffusers
 
