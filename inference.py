@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Minimal Diffusers inference example for Dreampal.
+"""Minimal Diffusers inference example for ChatrXL Uncensored.
 
 Usage:
     python inference.py --prompt "a portrait of a woman in a sunlit apartment"
@@ -27,11 +27,11 @@ NEGATIVE_EMBED = "BSY_Anatomy_Negatives_V1_PRO"
 
 
 def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="Generate an image with Dreampal")
+    p = argparse.ArgumentParser(description="Generate an image with ChatrXL Uncensored")
     p.add_argument(
         "--model",
-        default="dreampal-fp16.safetensors",
-        help="Path to the Dreampal checkpoint (default: dreampal-fp16.safetensors)",
+        default="chatrxl-uncensored-fp16.safetensors",
+        help="Path to the ChatrXL Uncensored checkpoint (default: chatrxl-uncensored-fp16.safetensors)",
     )
     p.add_argument(
         "--fast",
@@ -54,7 +54,7 @@ def parse_args() -> argparse.Namespace:
         default="embeddings",
         help="Directory containing the BSY embeddings (default: embeddings)",
     )
-    p.add_argument("--output", default="dreampal.png")
+    p.add_argument("--output", default="chatrxl-uncensored.png")
     p.add_argument(
         "--cpu-offload",
         action="store_true",
