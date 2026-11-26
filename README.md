@@ -1,6 +1,6 @@
-# SDXL Uncensored Omni
+# ChatrXL Uncensored
 
-[![Hugging Face](https://img.shields.io/badge/Hugging_Face-Weights-ffcc4d?style=for-the-badge)](https://huggingface.co/chatrlabs/SDXL-Uncensored-Omni)
+[![Hugging Face](https://img.shields.io/badge/Hugging_Face-Weights-ffcc4d?style=for-the-badge)](https://huggingface.co/chatrlabs/ChatrXL-Uncensored)
 [![Try the Playground](https://img.shields.io/badge/Playground-Try_it_live-2563eb?style=for-the-badge)](https://chatrlabs.com/playground)
 
 **Chatr Labs' uncensored SDXL/Pony-family checkpoint — a 20-step quality build and an 8-step DMD2 fast build.**
@@ -11,8 +11,8 @@ This repository holds the documentation, inference example and checksums. Weight
 
 | Build | File | Steps | CFG | Sampler | Size |
 | --- | --- | ---: | ---: | --- | ---: |
-| **Quality** (v3.3 lineage) | [sdxl-uncensored-omni-fp16.safetensors](https://huggingface.co/chatrlabs/SDXL-Uncensored-Omni/resolve/main/sdxl-uncensored-omni-fp16.safetensors?download=true) | 20 | 5.0 | `euler_a` | 6.94 GB |
-| **DMD2 fast** (v3.2 DMD2 lineage) | [sdxl-uncensored-omni-dmd2-fp16.safetensors](https://huggingface.co/chatrlabs/SDXL-Uncensored-Omni/resolve/main/sdxl-uncensored-omni-dmd2-fp16.safetensors?download=true) | 8 | 1.1 | `LCM` | 6.94 GB |
+| **Quality** (v3.3 lineage) | [chatrxl-uncensored-fp16.safetensors](https://huggingface.co/chatrlabs/ChatrXL-Uncensored/resolve/main/chatrxl-uncensored-fp16.safetensors?download=true) | 20 | 5.0 | `euler_a` | 6.94 GB |
+| **DMD2 fast** (v3.2 DMD2 lineage) | [chatrxl-uncensored-dmd2-fp16.safetensors](https://huggingface.co/chatrlabs/ChatrXL-Uncensored/resolve/main/chatrxl-uncensored-dmd2-fp16.safetensors?download=true) | 8 | 1.1 | `LCM` | 6.94 GB |
 
 Both are complete single-file checkpoints. The VAE and both text encoders are included; no base model download is required.
 
@@ -22,8 +22,8 @@ File integrity information is in [SHA256SUMS](./SHA256SUMS).
 
 Download both files from the Hugging Face repository:
 
-- [BSY_General_Positives_V1_PRO.safetensors](https://huggingface.co/chatrlabs/SDXL-Uncensored-Omni/resolve/main/embeddings/BSY_General_Positives_V1_PRO.safetensors?download=true)
-- [BSY_Anatomy_Negatives_V1_PRO.safetensors](https://huggingface.co/chatrlabs/SDXL-Uncensored-Omni/resolve/main/embeddings/BSY_Anatomy_Negatives_V1_PRO.safetensors?download=true)
+- [BSY_General_Positives_V1_PRO.safetensors](https://huggingface.co/chatrlabs/ChatrXL-Uncensored/resolve/main/embeddings/BSY_General_Positives_V1_PRO.safetensors?download=true)
+- [BSY_Anatomy_Negatives_V1_PRO.safetensors](https://huggingface.co/chatrlabs/ChatrXL-Uncensored/resolve/main/embeddings/BSY_Anatomy_Negatives_V1_PRO.safetensors?download=true)
 
 ## Recommended settings
 
@@ -59,12 +59,12 @@ IP-Adapter is optional; the checkpoint works without it. The DMD2 build is an ac
 
 ```
 ComfyUI/models/
-├── checkpoints/   sdxl-uncensored-omni-fp16.safetensors
+├── checkpoints/   chatrxl-uncensored-fp16.safetensors
 ├── embeddings/    BSY_General_Positives_V1_PRO.safetensors
 └── embeddings/    BSY_Anatomy_Negatives_V1_PRO.safetensors
 ```
 
-1. `Load Checkpoint` → the SDXL Uncensored Omni checkpoint
+1. `Load Checkpoint` → the ChatrXL Uncensored checkpoint
 2. `CLIP Text Encode` (positive) → `score_9, score_8_up, score_7_up, BSY_General_Positives_V1_PRO, <prompt>`
 3. `CLIP Text Encode` (negative) → `BSY_Anatomy_Negatives_V1_PRO`
 4. `KSampler` → `euler_a` 20 steps CFG 5.0, or `lcm` 8 steps CFG 1.1
@@ -78,16 +78,16 @@ Install the dependencies and run the included example:
 pip install -r requirements.txt
 python inference.py \
   --prompt "a portrait of a woman in a sunlit apartment, natural skin texture, 35mm photograph" \
-  --output sdxl-uncensored-omni.png
+  --output chatrxl-uncensored.png
 ```
 
 For the DMD2 build:
 
 ```bash
 python inference.py --fast \
-  --model sdxl-uncensored-omni-dmd2-fp16.safetensors \
+  --model chatrxl-uncensored-dmd2-fp16.safetensors \
   --prompt "a portrait of a woman at night, neon reflections" \
-  --output sdxl-uncensored-omni-dmd2.png
+  --output chatrxl-uncensored-dmd2.png
 ```
 
 The script uses `StableDiffusionXLPipeline.from_single_file`, switches to `EulerAncestralDiscreteScheduler` or `LCMScheduler`, and loads the two textual-inversion embeddings from `embeddings/`.
@@ -110,12 +110,12 @@ The two BSY embeddings are 64-token multi-vector embeddings. ComfyUI expands the
 
 ## Samples
 
-Generated with the recommended settings and embeddings. More examples are on the [Hugging Face model card](https://huggingface.co/chatrlabs/SDXL-Uncensored-Omni).
+Generated with the recommended settings and embeddings. More examples are on the [Hugging Face model card](https://huggingface.co/chatrlabs/ChatrXL-Uncensored).
 
 | Quality build, 20 steps | Quality build, 20 steps |
 | --- | --- |
-| ![quality 1](samples/sdxl-uncensored-omni-quality-01.png) | ![quality 2](samples/sdxl-uncensored-omni-quality-02.png) |
-| ![quality 3](samples/sdxl-uncensored-omni-quality-03.png) | ![DMD2, 8 steps](samples/sdxl-uncensored-omni-dmd2-01.png) |
+| ![quality 1](samples/chatrxl-uncensored-quality-01.png) | ![quality 2](samples/chatrxl-uncensored-quality-02.png) |
+| ![quality 3](samples/chatrxl-uncensored-quality-03.png) | ![DMD2, 8 steps](samples/chatrxl-uncensored-dmd2-01.png) |
 
 ## Notes
 
@@ -133,7 +133,7 @@ Licensing questions: [hello@chatrlabs.com](mailto:hello@chatrlabs.com)
 
 ## Links
 
-- [Model card and weights on Hugging Face](https://huggingface.co/chatrlabs/SDXL-Uncensored-Omni)
+- [Model card and weights on Hugging Face](https://huggingface.co/chatrlabs/ChatrXL-Uncensored)
 - [Chatr Labs website](https://chatrlabs.com)
 - [Playground](https://chatrlabs.com/playground)
 - [Chatr Labs on GitHub](https://github.com/chatrlabs)
