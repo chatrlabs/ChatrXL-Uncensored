@@ -133,7 +133,7 @@ Generated with the recommended settings and embeddings. More examples are on the
 
 ## License
 
-Released by **ChatR Labs**. Base model lineage: Babes by Stable Yogi (SDXL), custom build acquired and relicensed by ChatR Labs.
+Released by **Chatr Labs**.
 
 Distributed under the [Chatr Labs Model License 1.0](./LICENSE). Commercial use and derivative works are permitted; attribution and the acceptable-use terms apply. See [Notice](./Notice).
 
