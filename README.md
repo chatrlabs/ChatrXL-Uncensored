@@ -22,8 +22,8 @@ File integrity information is in [SHA256SUMS](./SHA256SUMS).
 
 Download both files from the Hugging Face repository:
 
-- [BSY_General_Positives_V1_PRO.safetensors](https://huggingface.co/chatrlabs/ChatrXL-Uncensored/resolve/main/embeddings/BSY_General_Positives_V1_PRO.safetensors?download=true)
-- [BSY_Anatomy_Negatives_V1_PRO.safetensors](https://huggingface.co/chatrlabs/ChatrXL-Uncensored/resolve/main/embeddings/BSY_Anatomy_Negatives_V1_PRO.safetensors?download=true)
+- [ChatrXL_General_Positives_V1_PRO.safetensors](https://huggingface.co/chatrlabs/ChatrXL-Uncensored/resolve/main/embeddings/ChatrXL_General_Positives_V1_PRO.safetensors?download=true)
+- [ChatrXL_Anatomy_Negatives_V1_PRO.safetensors](https://huggingface.co/chatrlabs/ChatrXL-Uncensored/resolve/main/embeddings/ChatrXL_Anatomy_Negatives_V1_PRO.safetensors?download=true)
 
 ## Recommended settings
 
@@ -36,8 +36,8 @@ Download both files from the Hugging Face repository:
 | Sampler | `euler_a` |
 | Resolution | 768 × 1152, 832 × 1216, or 1024 × 1024 |
 | Prompt prefix | `score_9, score_8_up, score_7_up,` |
-| Positive embedding | `BSY_General_Positives_V1_PRO` |
-| Negative prompt | `BSY_Anatomy_Negatives_V1_PRO` |
+| Positive embedding | `ChatrXL_General_Positives_V1_PRO` |
+| Negative prompt | `ChatrXL_Anatomy_Negatives_V1_PRO` |
 | IP-Adapter (optional) | Scale 0.1 |
 
 ### DMD2 fast build
@@ -49,8 +49,8 @@ Download both files from the Hugging Face repository:
 | Sampler | `LCM` |
 | Resolution | 768 × 1152, 832 × 1216, or 1024 × 1024 |
 | Prompt prefix | `score_9, score_8_up, score_7_up,` |
-| Positive embedding | `BSY_General_Positives_V1_PRO` |
-| Negative prompt | `BSY_Anatomy_Negatives_V1_PRO` |
+| Positive embedding | `ChatrXL_General_Positives_V1_PRO` |
+| Negative prompt | `ChatrXL_Anatomy_Negatives_V1_PRO` |
 | IP-Adapter (optional) | Scale 0.1 |
 
 IP-Adapter is optional; the checkpoint works without it. The DMD2 build is an accelerated v3.2 DMD2 checkpoint, not a distillation of the v3.3 quality build — small composition differences are expected.
@@ -60,13 +60,13 @@ IP-Adapter is optional; the checkpoint works without it. The DMD2 build is an ac
 ```
 ComfyUI/models/
 ├── checkpoints/   chatrxl-uncensored-fp16.safetensors
-├── embeddings/    BSY_General_Positives_V1_PRO.safetensors
-└── embeddings/    BSY_Anatomy_Negatives_V1_PRO.safetensors
+├── embeddings/    ChatrXL_General_Positives_V1_PRO.safetensors
+└── embeddings/    ChatrXL_Anatomy_Negatives_V1_PRO.safetensors
 ```
 
 1. `Load Checkpoint` → the ChatrXL Uncensored checkpoint
-2. `CLIP Text Encode` (positive) → `score_9, score_8_up, score_7_up, BSY_General_Positives_V1_PRO, <prompt>`
-3. `CLIP Text Encode` (negative) → `BSY_Anatomy_Negatives_V1_PRO`
+2. `CLIP Text Encode` (positive) → `score_9, score_8_up, score_7_up, ChatrXL_General_Positives_V1_PRO, <prompt>`
+3. `CLIP Text Encode` (negative) → `ChatrXL_Anatomy_Negatives_V1_PRO`
 4. `KSampler` → `euler_ancestral` 20 steps CFG 5.0, or `lcm` 8 steps CFG 1.1
 5. `VAE Decode` → `Save Image`
 
@@ -103,7 +103,7 @@ The script uses `StableDiffusionXLPipeline.from_single_file`, switches to `Euler
 ## Prompting
 
 ```
-score_9, score_8_up, score_7_up, BSY_General_Positives_V1_PRO,
+score_9, score_8_up, score_7_up, ChatrXL_General_Positives_V1_PRO,
 a portrait of a woman in a sunlit apartment, natural skin texture,
 35mm photograph, soft window light
 ```
@@ -111,10 +111,10 @@ a portrait of a woman in a sunlit apartment, natural skin texture,
 Negative prompt:
 
 ```
-BSY_Anatomy_Negatives_V1_PRO
+ChatrXL_Anatomy_Negatives_V1_PRO
 ```
 
-The two BSY embeddings are 64-token multi-vector embeddings. ComfyUI expands them across CLIP chunks automatically; the Diffusers example loads the full embedding, so keep prompts short or use a chunked prompt encoder for longer prompts.
+The two ChatrXL embeddings are 64-token multi-vector embeddings. ComfyUI expands them across CLIP chunks automatically; the Diffusers example loads the full embedding, so keep prompts short or use a chunked prompt encoder for longer prompts.
 
 ## Samples
 
