@@ -8,7 +8,7 @@
   "6": {
     "class_type": "CLIPTextEncode",
     "inputs": {
-      "text": "score_9, score_8_up, score_7_up, BSY_General_Positives_V1_PRO, a portrait of a woman in a sunlit apartment, natural skin texture, 35mm photograph, soft window light",
+      "text": "score_9, score_8_up, score_7_up, ChatrXL_General_Positives_V1_PRO, a portrait of a woman in a sunlit apartment, natural skin texture, 35mm photograph, soft window light",
       "clip": [
         "4",
         1
@@ -18,7 +18,7 @@
   "7": {
     "class_type": "CLIPTextEncode",
     "inputs": {
-      "text": "BSY_Anatomy_Negatives_V1_PRO",
+      "text": "ChatrXL_Anatomy_Negatives_V1_PRO",
       "clip": [
         "4",
         1
