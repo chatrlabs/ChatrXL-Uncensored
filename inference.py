@@ -5,7 +5,7 @@ Usage:
     python inference.py --prompt "a portrait of a woman in a sunlit apartment"
     python inference.py --fast --prompt "a portrait of a woman at night"
 
-The script expects the checkpoint and the two BSY embeddings to be in the
+The script expects the checkpoint and the two ChatrXL embeddings to be in the
 working directory (or pass explicit paths).
 """
 
@@ -22,8 +22,8 @@ from diffusers import (
 from safetensors.torch import load_file
 
 PROMPT_PREFIX = "score_9, score_8_up, score_7_up,"
-POSITIVE_EMBED = "BSY_General_Positives_V1_PRO"
-NEGATIVE_EMBED = "BSY_Anatomy_Negatives_V1_PRO"
+POSITIVE_EMBED = "ChatrXL_General_Positives_V1_PRO"
+NEGATIVE_EMBED = "ChatrXL_Anatomy_Negatives_V1_PRO"
 
 
 def parse_args() -> argparse.Namespace:
@@ -52,7 +52,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument(
         "--embeddings-dir",
         default="embeddings",
-        help="Directory containing the BSY embeddings (default: embeddings)",
+        help="Directory containing the ChatrXL embeddings (default: embeddings)",
     )
     p.add_argument("--output", default="chatrxl-uncensored.png")
     p.add_argument(
