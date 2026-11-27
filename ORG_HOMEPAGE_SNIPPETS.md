@@ -14,7 +14,7 @@ Chatr Labs' uncensored SDXL/Pony-family checkpoint, released in two builds: a **
 
 - Quality build: **20 steps**, **CFG 5.0**, `euler_a`
 - DMD2 build: **8 steps**, **CFG 1.1**, `LCM`
-- Includes the two BSY embeddings and a Diffusers inference example
+- Includes the two ChatrXL embeddings and a Diffusers inference example
 - [Model card, weights, and samples](https://huggingface.co/chatrlabs/ChatrXL-Uncensored)
 ```
 
@@ -29,7 +29,7 @@ Chatr Labs' uncensored SDXL/Pony-family checkpoint, in a **20-step quality** bui
 
 - Quality build: **20 steps**, **CFG 5.0**, `euler_a`
 - DMD2 build: **8 steps**, **CFG 1.1**, `LCM`
-- Complete single-file checkpoints; includes the two BSY embeddings and a Diffusers example
+- Complete single-file checkpoints; includes the two ChatrXL embeddings and a Diffusers example
 - [Model card and weights on Hugging Face](https://huggingface.co/chatrlabs/ChatrXL-Uncensored)
 ```
 
@@ -49,7 +49,7 @@ Insert before the existing `<section id="models" ...>` section. Leave the existi
     <ul style="color:#a1a1aa;line-height:1.8;padding-left:20px;margin:0 0 20px">
       <li>Quality: 20 steps · CFG 5.0 · euler_a</li>
       <li>DMD2: 8 steps · CFG 1.1 · LCM</li>
-      <li>Single-file checkpoints with BSY embeddings and a Diffusers example</li>
+      <li>Single-file checkpoints with ChatrXL embeddings and a Diffusers example</li>
     </ul>
     <div class="buttons" style="margin-top:0">
       <a class="primary" href="https://huggingface.co/chatrlabs/ChatrXL-Uncensored">Model &amp; weights</a>
