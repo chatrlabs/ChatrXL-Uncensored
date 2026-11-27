@@ -18,8 +18,8 @@ ComfyUI/models/
 │   ├── chatrxl-uncensored-fp16.safetensors
 │   └── chatrxl-uncensored-dmd2-fp16.safetensors
 └── embeddings/
-    ├── BSY_General_Positives_V1_PRO.safetensors
-    └── BSY_Anatomy_Negatives_V1_PRO.safetensors
+    ├── ChatrXL_General_Positives_V1_PRO.safetensors
+    └── ChatrXL_Anatomy_Negatives_V1_PRO.safetensors
 ```
 
 The checkpoints and both embeddings are in the Hugging Face repository. No custom
@@ -36,19 +36,19 @@ If the checkpoint is not selected automatically, choose it in `Load Checkpoint`.
 
 ## 3. Prompt
 
-The two BSY embeddings are loaded automatically from `models/embeddings/` when their
+The two ChatrXL embeddings are loaded automatically from `models/embeddings/` when their
 token appears in the prompt. The workflow already uses:
 
 Positive:
 
 ```
-score_9, score_8_up, score_7_up, BSY_General_Positives_V1_PRO, <your prompt>
+score_9, score_8_up, score_7_up, ChatrXL_General_Positives_V1_PRO, <your prompt>
 ```
 
 Negative:
 
 ```
-BSY_Anatomy_Negatives_V1_PRO
+ChatrXL_Anatomy_Negatives_V1_PRO
 ```
 
 ## 4. Settings
